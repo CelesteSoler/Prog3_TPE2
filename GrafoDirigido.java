@@ -1,4 +1,5 @@
-package tp2Esp;
+package Prog3_TPE2;
+//package tp2Esp;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -60,10 +61,11 @@ public class GrafoDirigido<String> implements Grafo<String> {
 
 	@Override
 	public boolean existeArco(String verticeId1, String verticeId2) {
+		
 		if(contieneVertice(verticeId1)) {//si el vertice destino existe
 			Iterator<Arco<String>> arcos = this.obtenerArcos(verticeId1);//obtengo un iterator de todos los arcos adyacentes de vertice origen
 			while(arcos.hasNext()) {//mientras arcos tenga un siguiente
-				if(arcos.next().getVerticeDestino()== verticeId2) {//a cada arco le pido el vertice destino, metodo que está en la clase Arco
+				if(arcos.next().getVerticeDestino().equals(verticeId2)) { //a cada arco le pido el vertice destino, metodo que está en la clase Arco
 					return true;//si encuentro un vertice destino iguak a verticeId2, retorno true
 				}	
 			}
@@ -80,7 +82,7 @@ public class GrafoDirigido<String> implements Grafo<String> {
 				Iterator<Arco<String>> arcos = this.obtenerArcos(verticeId1);
 				while(arcos.hasNext()) {//mientras arcos tenga un siguiente
 					Arco<String> arco = arcos.next();
-					if(arco.getVerticeDestino()== verticeId2) {//a cada arco le pido el vertice destino, metodo que está en la clase Arco
+					if(arco.getVerticeDestino().equals(verticeId2)) {//a cada arco le pido el vertice destino, metodo que está en la clase Arco
 						
 					return arco;//si encuentro un ve
 					}
@@ -132,6 +134,7 @@ public class GrafoDirigido<String> implements Grafo<String> {
 		return arcosList.iterator(); //O(1)
 	}
 
+	@Override
 	public Iterator<Arco<String>> obtenerArcos(String verticeId) {
 		ArrayList<Arco<String>> arcosList = new ArrayList<Arco<String>>();
 		
@@ -154,12 +157,6 @@ public class GrafoDirigido<String> implements Grafo<String> {
 		// TODO Auto-generated method stub
 		
 	}
-
-	
-
-
-//boludes
-		
 	}
 
 

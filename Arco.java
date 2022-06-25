@@ -1,5 +1,8 @@
-package tp2Esp;
+package Prog3_TPE2;
 
+import java.util.Comparator;
+
+//package tp2Esp;
 
 
 /*
@@ -7,7 +10,7 @@ package tp2Esp;
  * Nota: Para poder exponer los arcos fuera del grafo y que nadie los modifique se hizo esta clase inmutable
  * (Inmutable: una vez creado el arco no es posible cambiarle los valores).
  */
-public class Arco<String> {
+public class Arco<String> implements Comparator <Arco> {
 
 	private String verticeOrigen;
 	private String verticeDestino;
@@ -34,6 +37,24 @@ public class Arco<String> {
 	public void setEtiqueta(int etiqueta) {
 		this.etiqueta = etiqueta;
 	}
+
+	@Override
+	public java.lang.String toString() {
+		return "Arco [verticeOrigen=" + verticeOrigen + ", verticeDestino=" + verticeDestino + ", etiqueta=" + etiqueta
+				+ "]";
+	}
+
+	@Override
+	public int compare(Arco o1, Arco o2) {
+		return o1.getEtiqueta() - o2.getEtiqueta();
+	}
+
+//	@Override
+//	public int compareTo(Arco otroArco) {
+//		return this.getEtiqueta() - otroArco.getEtiqueta();
+//	}
+	
+	
 	
 	
 	

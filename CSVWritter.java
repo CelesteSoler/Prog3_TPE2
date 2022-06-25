@@ -1,4 +1,5 @@
-package tp2Esp;
+package Prog3_TPE2;
+//package tp2Esp;
 
 import java.io.BufferedWriter;
 import java.io.File;

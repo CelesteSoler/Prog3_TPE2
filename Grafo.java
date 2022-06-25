@@ -1,4 +1,5 @@
-package tp2Esp;
+package Prog3_TPE2;
+//package tp2Esp;
 
 import java.util.Iterator;
 
@@ -23,7 +24,7 @@ public interface Grafo<String> {
 	public boolean existeArco(String verticeId1, String verticeId2);
 	
 	// Obtener el arco que conecta el verticeId1 con el verticeId2
-	public Arco<String> obtenerArco(String verticeId1, String verticeId2);
+	public Arco<String> obtenerArco(String verticeId1,  String verticeId2);
 
 	// Devuelve la cantidad total de vertices en el grafo
 	public int cantidadVertices();
@@ -42,6 +43,9 @@ public interface Grafo<String> {
 		
 	// Obtiene un iterador que me permite recorrer todos los arcos que parten desde verticeId
 	public Iterator<Arco<String>> String(String verticeId);
+
+	public Iterator<Arco<String>> obtenerArcos(String verticeId);
+
 
 
 }
