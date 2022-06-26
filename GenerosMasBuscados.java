@@ -3,6 +3,7 @@ package Prog3_TPE2;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 
 public class GenerosMasBuscados {
@@ -13,25 +14,32 @@ public class GenerosMasBuscados {
 		 ArrayList<String> generos = new ArrayList<>();
 		 
 		 ArrayList<Arco<String>> arcos = new ArrayList<>();
-		 Iterator<Arco<String>> arcosAdya = this.grafo.obtenerArcos(generoA);		 
-		
+		 Iterator<Arco<String>> arcosAdya = this.grafo.obtenerArcos(generoA);
+		 arcosAdya.forEachRemaining(arcos::add);// los agrega a la lista arcos 
+		 arcos.sort(Comparator.comparing(Arco<String>::getEtiqueta));
+		 
+		 
+		 
 //		Iterator<String> it = this.grafo.obtenerAdyacentes(generoA);
 		//public Iterator<Arco<String>> obtenerArcos(String verticeId) {		
 		
-		while(arcosAdya.hasNext()) {
-			Arco<String> arco = grafo.obtenerArco(generoA, arcosAdya.next());
-			arcos.add(arco);
+		 
+		for(int i= 0; i< Ngeneros; i++) {
+			generos.add(arcos.get(i).getVerticeDestino());
 		}
-		Collections.sort(arcos);
-	
-		
-		int i =0;
-		while(generos.size() < Ngeneros) {
-			
-			String gen = arcos[i].getVerticeDestino();
-			generos.add(gen);
-			i++;
-		}
+		 
+//		while(arcosAdya.hasNext()) {
+//			Arco<String> arco = grafo.obtenerArco(generoA, arcosAdya.next().getVerticeDestino());
+//			arcos.add(arco);
+//		}
+//		
+//		int i =0;
+//		while(generos.size() < Ngeneros) {
+//			
+//			String gen = arcos[i].getVerticeDestino();
+//			generos.add(gen);
+//			i++;
+//		}
 		
 		
 //		while(it.hasNext()) {
@@ -42,7 +50,7 @@ public class GenerosMasBuscados {
 //			generos.add(it.next());
 //			
 //		}
-		return arcos;
+		return generos;
 	}
 	
 	

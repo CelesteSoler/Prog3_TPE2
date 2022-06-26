@@ -21,6 +21,7 @@ public class CSVReader {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(csvFile),"ISO_8859_1"))) { //ahora si lo lee bien 
         	
         	GrafoDirigido<String> grafo = new GrafoDirigido<>(0);
+        	
         	 br.readLine();
         	 
             while ((line = br.readLine()) != null) {
@@ -46,11 +47,12 @@ public class CSVReader {
 //           System.out.println(arco);  
             
             
-            GenerosMasBuscados generos = new GenerosMasBuscados();
+//            GenerosMasBuscados generos = new GenerosMasBuscados();
+//            System.out.println(generos.generoMasBuscadoA("viajes", 3));
             
+//            System.out.println(grafo.generoMasBuscadoA("viajes", 2)); //funciona
             
-            System.out.println(generos.generoMasBuscadoA("viajes", 3));
-            
+            System.out.println(grafo.secuenciaMayorValor("viajes"));
             
         } catch (IOException e) {
             e.printStackTrace();
